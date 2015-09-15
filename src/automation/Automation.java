@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package automation;
 
 import java.util.List;
@@ -101,8 +96,7 @@ public class Automation extends JFrame implements ActionListener{
                     idnum++;
                     JOptionPane.showMessageDialog(null, "Form processed successfully. ("+idnum+" IDs processed thus far)");
                 }
-                else if(selectedState.equals("SC"))
-                    totalForm += generateSouthCarolina();
+                else if(selectedState.equals("SC"));
                 else;
             }
             
@@ -134,15 +128,6 @@ public class Automation extends JFrame implements ActionListener{
             Logger.getLogger(Automation.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-    }
-    
-    private String generateSouthCarolina()
-    {
-        boolean moreIDs=true;
-        int first=0;int middle=1;int last=2;int street=3;int city=4;int state=5;
-        int zip=6;int height=7;int weight=8;int expiration=9;int birthdate=10;int gender=11;
-        int issue=12;
-        return "";
     }
     
     private String generateOregon() throws UnsupportedEncodingException, FileNotFoundException, IOException
@@ -185,7 +170,7 @@ public class Automation extends JFrame implements ActionListener{
         //set it all up into a long string
         String thisID ="OR"+c+"OR_ID_"+idnum+"_"+finalForm.get(lastIndex)+c+"5240"+c+"820"+c+"3000"+c+"550"+c+
                 license+c+finalForm.get(firstIndex) + " " + finalForm.get(middleIndex) + " " + finalForm.get(lastIndex)+c+
-                ""+c+finalForm.get(streetIndex)+c+finalForm.get(cityIndex)+c+finalForm.get(stateIndex)+c+finalForm.get(zipIndex)+c+
+                ""+c+finalForm.get(streetIndex)+c+finalForm.get(cityIndex)+c+stateConverter(finalForm.get(stateIndex))+c+finalForm.get(zipIndex)+c+
                 "C"+c+"D"+c+""+c+finalForm.get(heightIndex)+c+finalForm.get(weightIndex)+c+expirationDate+c+
                 finalForm.get(birthdateIndex)+c+finalForm.get(genderIndex)+c+finalForm.get(issueIndex)+c+
                 "FIRST LICENSED: " + finalForm.get(firstLicensedIndex)+"\n";
@@ -199,12 +184,12 @@ public class Automation extends JFrame implements ActionListener{
         //next 2 lines make Lists of the states and their abbreviations
         List<String> longStates = Arrays.asList("Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming");
         List<String> shortStates = Arrays.asList("AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY");
-        if(longStates.contains(input)){//if the state is not an abbreviation
+        if(longStates.contains(input)){//if the , is not an abbreviation
             int index = longStates.indexOf(input);
             result = shortStates.get(index);}//change it to the abbreviated one
-        else if(shortStates.contains(input)){//if the state is an abbreviation
-            int index = shortStates.indexOf(input);
-            result = longStates.get(index);}//change it to an extended form
+        //else if(shortStates.contains(input)){//if the state is an abbreviation
+            //int index = shortStates.indexOf(input);
+            //result = longStates.get(index);}//change it to an extended form
         else
             result = "NOT IN EXISTENCE";
         return result; 
