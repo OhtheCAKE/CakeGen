@@ -14,7 +14,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
- * @author James
+ * @author Oh_the_CAKE
  */
 public class Automation extends JFrame implements ActionListener{
 
